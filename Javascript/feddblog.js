@@ -1,4 +1,4 @@
-  // Your web app's Firebase configuration
+ // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAVrWDMXZT_oA3HU8UN9jnwTEQq40UugjE",
     authDomain: "codingert.firebaseapp.com",
@@ -32,8 +32,8 @@
                 for (var t = document.getElementsByClassName("survey"), i = 0, o = t[i]; i < t.length; i++) {
                     var a = o.getAttribute("data-id"),
                         r = JSON.parse(localStorage.getItem("liked")) || [],
-                        c = 0;
-                        d = 0
+                        c = 0,
+                        d = 0;
 
                     //like
                     e.ref("suka/" + a + "/like").on("value", function(e) {
