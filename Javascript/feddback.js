@@ -33,19 +33,24 @@
                     var a = o.getAttribute("data-id"),
                         r = JSON.parse(localStorage.getItem("liked")) || [],
                         c = 0;
-                    e.ref("suka/" + a + "/jumlah").on("value", function(e) {
-                        -1 !== r.indexOf(a), c = e.val() || 0, o.querySelector(".jumlah").innerText = c
+                        d = 0
+
+                    //like
+                    e.ref("suka/" + a + "/like").on("value", function(e) {
+                        -1 !== r.indexOf(a) && o.querySelector('.yes').classList.add('active'), c = e.val() || 0, o.querySelector(".like").innerText = c
                     }), o.querySelector(".yes").addEventListener("click", function() {
-(r.push(a), localStorage.setItem("liked", JSON.stringify(r)), c++) , e.ref("suka/" + a + "/jumlah").set(c);
-                        $('.survey').fadeOut('slow', function(){
-                            $(this).remove();
-                        });
-                    }), o.querySelector(".no").addEventListener("click", function(){
-                        (r.remove(a), localStorage.setItem("liked", JSON.stringify(r)), c--), e.ref("suka/" + a + "/jumlah").set(c);
-                        $('.survey').fadeOut('slow', function(){
-                            $(this).remove();
-                        });
-                    })
+o.querySelector('.yes').classList.toggle('active'), o.querySelector('.yes').classList.contains('active') ? (r.push(a), localStorage.setItem("liked", JSON.stringify(r)), c++) : (r.remove(a), localStorage.setItem("liked", JSON.stringify(r)), c--), e.ref("suka/" + a + "/like")
+                    .set(c)
+                    });
+                    
+                    // dislike
+                    
+                    e.ref("suka/" + a + "/dislike").on("value", function(e) {
+                        -1 !== r.indexOf(a) && o.querySelector('.no').classList.add('active'), d = e.val() || 0, o.querySelector(".dislike").innerText = d
+                    }), o.querySelector(".no").addEventListener("click", function() {
+o.querySelector('.no').classList.toggle('active'), o.querySelector('.no').classList.contains('active') ? (r.push(a), localStorage.setItem("liked", JSON.stringify(r)), d++) : (r.remove(a), localStorage.setItem("liked", JSON.stringify(r)), d--), e.ref("suka/" + a + "/dislike")
+                    .set(d)
+                    });
 
                 }
                 
