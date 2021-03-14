@@ -275,7 +275,7 @@ let nav=document.querySelector("button.navbar-toggler");function fullHeight(){fo
                                   </b:includable>
                       <b:includable id='image'>
                                           <a expr:href='data:blog.homepageUrl' expr:title='data:title'>
-                                                  <img class='lazyloaded blur-up' expr:alt='data:title ? data:title : data:messages.image' expr:data-src='data:image' expr:title='data:title'/>
+                                                  <img expr:alt='data:title ? data:title : data:messages.image' expr:src='data:image' expr:title='data:title'/>
                                           </a>
                                   </b:includable>
                       <b:includable id='title'>
